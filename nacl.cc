@@ -2,18 +2,12 @@
 #include <nan.h>
 #include "functions.h"
 
-using v8::FunctionTemplate;
-using v8::Handle;
 using v8::Object;
 using v8::String;
 
-void InitAll(Handle<Object> exports) {
-
-  exports->Set(NanNew<String>("verify"),
-    NanNew<FunctionTemplate>(verify)->GetFunction());
-
-  exports->Set(NanNew<String>("sign"),
-    NanNew<FunctionTemplate>(sign)->GetFunction());
+NAN_MODULE_INIT(InitAll) {
+  Nan::Set(target, Nan::New<v8::String>("verify").ToLocalChecked(), Nan::GetFunction(Nan::New<v8::FunctionTemplate>(verify)).ToLocalChecked());
+  Nan::Set(target, Nan::New<String>("sign").ToLocalChecked(), Nan::GetFunction(Nan::New<v8::FunctionTemplate>(sign)).ToLocalChecked());
 }
 
 NODE_MODULE(nacl, InitAll)
