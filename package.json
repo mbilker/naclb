@@ -3,13 +3,18 @@
   "version": "0.2.2",
   "description": "Node.js Addon for NaCl Binding",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mbilker/naclb.git"
+  },
   "scripts": {
     "test": "node_modules/mocha/bin/mocha tests/",
     "install": "node-pre-gyp install --fallback-to-build"
   },
   "binary": {
     "module_name": "nacl",
-    "module_path": "./lib/binding/"
+    "module_path": "./lib/binding/{node_abi}-{platform}-{arch}",
+    "host": ""
   },
   "dependencies": {
     "nan": "2.1.0",
