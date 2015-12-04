@@ -13,7 +13,7 @@
   },
   "binary": {
     "module_name": "nacl",
-    "module_path": "./lib/binding/{node_abi}-{platform}-{arch}",
+    "module_path": "./lib/binding/{platform}-{arch}",
     "host": ""
   },
   "dependencies": {
